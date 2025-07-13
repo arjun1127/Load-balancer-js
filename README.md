@@ -46,3 +46,8 @@ Dashboard polls data.json and renders it live using JavaScript
 
 (Here i have not considered the cpu useage(its just random)))
 
+# RESULT 
+
+<img width="1333" height="647" alt="Screenshot from 2025-07-13 16-40-24" src="https://github.com/user-attachments/assets/fd20a295-e9c7-48db-a7ea-f40ea707cf57" />
+
+
