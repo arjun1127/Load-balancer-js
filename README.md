@@ -46,6 +46,42 @@ Dashboard polls data.json and renders it live using JavaScript
 
 (Here i have not considered the cpu useage(its just random)))
 
+
+
+## 📚 Learning Resources
+
+### 🟢 Node.js & Proxy Basics
+
+| Topic                          | Resource                                                                 |
+|-------------------------------|--------------------------------------------------------------------------|
+| Node.js HTTP Module           | [Node.js HTTP Docs](https://nodejs.org/api/http.html)                   |
+| `http-proxy` Module           | [`http-proxy` GitHub](https://github.com/http-party/node-http-proxy)    |
+| Creating a Reverse Proxy      | [Reverse Proxy with http-proxy](https://www.digitalocean.com/community/tutorials/nodejs-reverse-proxy) |
+
+---
+
+### ⚙️ Networking & Load Balancing
+
+| Topic                          | Resource                                                                 |
+|-------------------------------|--------------------------------------------------------------------------|
+| Load Balancer Types (L4 vs L7)| [DigitalOcean: Load Balancer Layers](https://www.digitalocean.com/community/tutorials/load-balancing-layer-4-vs-layer-7) |
+| TCP/IP Layered Model           | [TCP/IP Explained Visually](https://www.internetsociety.org/tutorials/tcp-ip-basics/) |
+| AWS Load Balancers             | [AWS Load Balancer Overview (Official)](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html) |
+
+---
+
+### 📊 Intelligent Routing & CPU Awareness
+
+| Topic                          | Resource                                                                 |
+|-------------------------------|--------------------------------------------------------------------------|
+| CPU-Aware Routing Algorithm    | [CPU-aware Load Balancing Overview (Research)](https://ieeexplore.ieee.org/document/5605901) |
+| Load Balancing Algorithms Explained | [Nginx Load Balancing Algorithms](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#load-balancing-methods) |
+
+---
+
+> 🔎 These resources will help you understand the internals of how your Node.js load balancer works, and how it relates to real-world systems like AWS Elastic Load Balancing.
+
+
 # RESULT 
 
 <img width="1333" height="647" alt="Screenshot from 2025-07-13 16-40-24" src="https://github.com/user-attachments/assets/fd20a295-e9c7-48db-a7ea-f40ea707cf57" />
