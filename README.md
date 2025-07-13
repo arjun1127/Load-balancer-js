@@ -17,8 +17,8 @@ A lightweight, custom-built **load balancer** in Node.js that intelligently rout
 
 ## Clone Project 
 ```
-git clone https://github.com/your-username/load-balancer-dashboard.git
-cd load-balancer-dashboard
+https://github.com/arjun1127/Load-balancer-js.git
+cd Load-balancer-js
 npm install
 ```
 ## To run the load balancer
