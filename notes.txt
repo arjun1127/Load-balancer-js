@@ -1,0 +1,49 @@
+Server.js Notes : 
+this code creates a simple HTTP server that, for every incoming request, generates a random "CPU usage" value,
+packages it along with the server's ID into a JSON object, and sends that JSON object back as the response. 
+It allows you to specify the port via a command-line argument or defaults to 3001.
+
+
+process.argv: This is a Node.js global object that provides access to command-line arguments passed when the Node.js process was launched. process.argv is an array where:
+
+process.argv[0] is the path to the Node.js executable.
+
+process.argv[1] is the path to the JavaScript file being executed.
+
+process.argv[2] (and subsequent elements) are the actual command-line arguments provided by the user.
+
+process.argv[2]: This attempts to get the third command-line argument. If a user runs node server.js 8080, then 8080 would be process.argv[2].
+
+
+http.createServer(...): This is a method of the http module that creates a new HTTP server object. 
+It takes a single argument: a callback function that will be executed every time a request is made to the server.
+
+(req,res)=>{ ... }: This is the request listener callback function.
+
+req: This is the IncomingMessage object, which represents the incoming request from the client. It contains information like the URL, HTTP method, headers, etc.
+
+res: This is the ServerResponse object, which is used to send data back to the client.
+
+Inside the callback function:
+const cpuUsage=Math.floor(Math.random()*60)+20;:
+
+Math.random(): Generates a floating-point pseudo-random number between 0 (inclusive) and 1 (exclusive).
+
+const response={server:id,cpuUsage};
+This object will be sent as the server's response. It contains two properties:
+server: The id of the server (e.g., "Server-3001").
+cpuUsage: The randomly generated CPU usage value.
+
+res.writeHead(200,{'Content-Type':'application/json'});:
+res.writeHead(): This method sends a response header to the request.
+200: This is the HTTP status code, indicating "OK" (success).
+{'Content-Type':'application/json'}: This is an object specifying the HTTP headers.
+ In this case, it sets the Content-Type header to application/json, informing the client that the response body will be in JSON format.
+
+res.end(JSON.stringify(response));:
+res.end(): This method signals to the server that all of the response headers and body have been sent; that is, the response is complete. It takes the response body as an argument.
+
+
+
+Load Balancer Logic : 
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Load Balancer Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+    td, th { border: 1px solid #ccc; padding: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Load Balancer Request Logs</h1>
+  <table>
+    <thead>
+      <tr><th>Time</th><th>Backend Server</th><th>URL</th><th>Response Time (ms)</th><th>Error</th></tr>
+    </thead>
+    <tbody id="log-table"></tbody>
+  </table>
+
+  <canvas id="cpuChart" width="400" height="150"></canvas>
+
+  <script>
+    async function loadLogs() {
+      const res = await fetch('/data');
+      const logs = await res.json();
+      const table = document.getElementById('log-table');
+      table.innerHTML = logs.map(log => `
+        <tr>
+          <td>${new Date(log.time).toLocaleTimeString()}</td>
+          <td>${log.server}</td>
+          <td>${log.url}</td>
+          <td>${log.responseTime}</td>
+          <td>${log.error || ''}</td>
+        </tr>
+      `).join('');
+    }
+
+    const ctx = document.getElementById('cpuChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [], // server names
+        datasets: [{
+          label: 'CPU Usage (%)',
+          data: [],
+          backgroundColor: 'steelblue'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true, max: 100 }
+        }
+      }
+    });
+
+    async function loadMetrics() {
+      const res = await fetch('/metrics');
+      const metrics = await res.json();
+
+      chart.data.labels = metrics.map(m => `Server-${m.port}`);
+      chart.data.datasets[0].data = metrics.map(m => m.cpuUsage);
+      chart.update();
+    }
+
+    setInterval(() => {
+      loadLogs();
+      loadMetrics();
+    }, 1000);
+  </script>
+</body>
+</html>
