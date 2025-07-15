@@ -46,6 +46,9 @@ Dashboard polls data.json and renders it live using JavaScript
 
 (Here i have not considered the cpu useage(its just random)))
 
+<img width="1042" height="513" alt="image" src="https://github.com/user-attachments/assets/f87739fb-23e8-41ea-8bf8-238eb073d987" />
+
+
 
 
 ## 📚 Learning Resources
