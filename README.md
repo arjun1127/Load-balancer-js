@@ -60,6 +60,19 @@ for reference this is how the CPU aware LB algorithm works
 | Monitoring    | Here real-time dashboard shows request traffic      |
 
 
+# NOTE about AWS ALB
+| Feature                      | AWS ALB                    |           JS Load Balancer                 |
+| ---------------------------- | -------------------------- | ------------------------------------------ |
+| **Layer 7 Routing**          | Yes (HTTP-based rules)     | Yes (routes based on CPU usage & URL)      |
+| **Custom Load Strategy**     | Least Outstanding Requests | CPU-aware routing (custom logic)           |
+| **Health Checks**            | Yes                        | Partial (fails over if server unreachable) |
+| **Dashboard**                | CloudWatch, X-Ray          | Custom real-time dashboard                 |
+| **Auto Scaling Integration** | Yes (with EC2, ECS, etc.)  | No (manual scaling, but possible)          |
+| **Protocol Support**         | HTTP/1.1, HTTP/2, gRPC     | HTTP only                                  |
+| **SSL Termination**          | Yes                        | Not implemented (can be added)             |
+| **Highly Available**         | Yes (multi-AZ)             | No (local environment only)                |
+| **Pricing**                  | Pay-as-you-go              | Free and local                             |
+
 
 
 ## 📚 Learning Resources
