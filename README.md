@@ -51,6 +51,15 @@ for reference this is how the CPU aware LB algorithm works
 <img width="1042" height="513" alt="image" src="https://github.com/user-attachments/assets/f87739fb-23e8-41ea-8bf8-238eb073d987" />
 
 
+## NOTE about NIGNX
+| NGINX Feature |  Similarity In this Project
+| ------------- | --------------------------------------------------- |
+| Reverse Proxy | I used `http-proxy` to forward client requests     |
+| Load Balancer | I select backend based on CPU usage (custom algo) |
+| Logging       | Here log request info in `data.json`                 |
+| Monitoring    | Here real-time dashboard shows request traffic      |
+
+
 
 
 ## 📚 Learning Resources
